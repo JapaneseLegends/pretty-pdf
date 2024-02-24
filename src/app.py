@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-from TemplateRender import TemplateRender
-from PdfGenerator import PdfGenerator
+from services.TemplateRender import TemplateRender
+from services.PdfGenerator import PdfGenerator
 
 def main():
     template = TemplateRender({

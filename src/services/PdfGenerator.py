@@ -1,7 +1,7 @@
 from weasyprint import HTML
 from interfaces.aliases import html_template
 from utils.console import print_info, print_success, print_warning
-from os import path, mkdir, chdir
+from os import path, mkdir
 
 class PdfGenerator(object):
     def __init__(self, template: html_template) -> None:
