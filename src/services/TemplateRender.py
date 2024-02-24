@@ -48,7 +48,7 @@ class TemplateRender(object):
 
             print_info(f"Rendering template '{self.filename}'.")
     
-            render = template.render()
+            render = template.render(self.renderdata)
             print_info(f"Template '{self.filename}' rendered successfully.")
     
             return render
