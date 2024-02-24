@@ -1,6 +1,7 @@
 *.json
 /output
 /templates
+/styles
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
