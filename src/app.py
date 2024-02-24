@@ -10,6 +10,8 @@ def main():
 
     html = template.render()
     pdf = PdfGenerator(html)
+
+    pdf.add_stylesheet('styles/pdf.css')
     
     pdf.save('output/result.pdf')
 

@@ -5,8 +5,14 @@ from os import path, mkdir
 
 class PdfGenerator(object):
     def __init__(self, template: html_template) -> None:
+        self.stylesheet_files = []
+        
         print_info("Creating PDF from HTML template...")
         self.html = HTML(string=template)
+
+    def add_stylesheet(self, filename: str) -> None:
+        print_info(f"Adding stylesheet '{filename}'...")
+        self.stylesheet_files.append(filename)
 
     def save(self, filename: str) -> None:
         dirname = path.dirname(filename)
@@ -19,7 +25,7 @@ class PdfGenerator(object):
             print_warning(f"File '{filename}' already exists. Overwriting it...")
 
         print_info(f"Writing PDF into file...")
-        self.html.write_pdf(filename)       
+        self.html.write_pdf(filename, stylesheets=self.stylesheet_files)       
         
         print_success(f"PDF file saved as '{filename}'.")
 
