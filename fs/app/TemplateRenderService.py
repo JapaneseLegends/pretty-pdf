@@ -5,11 +5,11 @@ from utils.console import print_error, print_info, print_warning, print_success
 import json
 from interfaces.objects import TemplateRenderOptions
 from interfaces.aliases import html_template
-from interfaces import JinjaAdapter
+from fs.app.interfaces import TemplateEngine
 
 
 class TemplateRenderService(object):
-    def __init__(self, adapter: JinjaAdapter):
+    def __init__(self, adapter: TemplateEngine):
         self.adapter = adapter
     
     def __extract_basedir(self, options) -> str:

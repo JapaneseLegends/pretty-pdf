@@ -1,7 +1,7 @@
 from typing import Any, Dict, List
 from abc import ABC, abstractmethod
 
-class JinjaAdapter(ABC):
+class TemplateEngine(ABC):
     @abstractmethod
     def set_template(self, template_path: str) -> None:
         pass
