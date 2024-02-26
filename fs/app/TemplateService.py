@@ -8,7 +8,7 @@ from interfaces.aliases import html_template
 from fs.app.interfaces import TemplateEngine
 
 
-class TemplateRenderService(object):
+class TemplateService(object):
     def __init__(self, adapter: TemplateEngine):
         self.adapter = adapter
     
