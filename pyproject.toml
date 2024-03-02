@@ -14,9 +14,11 @@ weasyprint = "^61.0"
 rich = "^13.7.0"
 black = "^24.2.0"
 fastapi = "^0.110.0"
+uvicorn = "^0.27.1"
 
 [tool.poetry.scripts]
 start = "scripts.console:start"
+serve = "scripts.console:serve"
 
 [build-system]
 requires = ["poetry-core"]

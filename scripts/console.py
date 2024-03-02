@@ -1,5 +1,10 @@
 import os
 
 def start():
-    # starts the server
+    # run main app
     os.system('python src/app.py')
+
+
+def serve():
+    # run server
+    os.system('uvicorn src.server:app --reload')
