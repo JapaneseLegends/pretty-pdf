@@ -1,11 +1,11 @@
 from typing import Any, TypeVar
-from ..app.interfaces.TemplateEngine import TemplateEngine
+from src.services.interfaces.TemplateEngine import TemplateEngine
 from jinja2 import Environment, FileSystemLoader
 
 
 class TemplateEngineAdapter(TemplateEngine):
-    def __init__(self, template: str):
-        self.template = template
+    def __init__(self):
+        self.template = ""
         self.data = {}
 
     def set_template(self, template_path: str) -> TemplateEngine:
