@@ -9,8 +9,8 @@ class PdfBuilderAdapter(PdfBuilder):
         self.html = HTML(string=template)
         return self
 
-    def save(self, filename: str) -> None:
+    def save(self) -> bytes:
         if self.html is None:
             raise Exception('Template not set')
 
-        self.html.write_pdf(filename)
+        return self.html.write_pdf() or b''

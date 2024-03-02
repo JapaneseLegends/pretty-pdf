@@ -36,4 +36,7 @@ class PdfGenerationController():
             'data': { "json": data }
         })
 
-        self.pdfService.create(html, options.get('output_path')) 
+        blob = self.pdfService.create(html) 
+
+        with open(options['output_path'], 'wb') as file:
+            file.write(blob)

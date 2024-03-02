@@ -6,5 +6,5 @@ class PdfBuilder(ABC):
         pass
 
     @abstractmethod
-    def save(self, filename: str) -> None:
+    def save(self) -> bytes:
         pass
