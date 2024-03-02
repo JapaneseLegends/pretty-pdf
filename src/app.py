@@ -1,18 +1,13 @@
 #!/usr/bin/env python3
-from services.TemplateRender import TemplateRender
-from services.PdfGenerator import PdfGenerator
+from src.controllers.GenerationController import PdfGenerationController
 
 def main():
-    template = TemplateRender({
-        'templatePath': 'artifacts/templates/index.html',
-        'jsonPath': 'artifacts/data.json'
+    controller = PdfGenerationController()
+    controller.generate({
+        'template_path': 'artifacts/template.html',
+        'json_path': 'artifacts/data.json',
+        'output_path': 'artifacts/output.pdf'
     })
-
-    html = template.render()
-    pdf = PdfGenerator(html)
-
-    pdf.add_stylesheet('artifacts/styles/pdf.css')
-    pdf.save('artifacts/output.pdf')
 
 if __name__ == '__main__':
     main()
