@@ -1,4 +1,4 @@
-from interfaces import PdfBuilder
+from interfaces.PdfBuilder import PdfBuilder
 
 class PdfService:
     def __init__(self, adapter: PdfBuilder):
