@@ -2,7 +2,7 @@ from abc import ABC, abstractmethod
 
 class PdfBuilder(ABC):
     @abstractmethod
-    def set_template(self, template_path: str) -> None:
+    def set_template(self, template: str) -> None:
         pass
 
     @abstractmethod
