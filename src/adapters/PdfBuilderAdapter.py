@@ -1,5 +1,5 @@
 from weasyprint import HTML
-from ..app.interfaces.PdfBuilder import PdfBuilder
+from src.services.interfaces.PdfBuilder import PdfBuilder
 
 class PdfBuilderAdapter(PdfBuilder):
     def __init__(self):

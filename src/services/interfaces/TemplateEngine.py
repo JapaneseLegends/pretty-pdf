@@ -11,6 +11,6 @@ class TemplateEngine(ABC):
         pass
 
     @abstractmethod
-    def render(self):
+    def render(self) -> str:
         pass
 
