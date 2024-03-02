@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-from src.controllers.GenerationController import PdfGenerationController
+from controllers.LibController import LibController
 
 def main():
-    controller = PdfGenerationController()
+    controller = LibController()
     controller.generate({
         'template_path': 'artifacts/template.html',
         'json_path': 'artifacts/data.json',

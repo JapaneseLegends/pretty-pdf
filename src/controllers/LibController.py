@@ -12,7 +12,7 @@ class TemplateOptions(TypedDict):
     output_path: str
 
 
-class PdfGenerationController():
+class LibController():
     def __init__(self):
         self.pdfBuilder = PdfBuilderAdapter()
         self.templateEngine = TemplateEngineAdapter()
