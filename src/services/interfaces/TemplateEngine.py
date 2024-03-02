@@ -3,7 +3,7 @@ from abc import ABC, abstractmethod
 
 class TemplateEngine(ABC):
     @abstractmethod
-    def set_template(self, template_path: str):
+    def set_template(self, template: str):
         pass
 
     @abstractmethod

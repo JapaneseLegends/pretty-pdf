@@ -1,6 +1,8 @@
-from typing import Any, TypeVar
 from src.services.interfaces.TemplateEngine import TemplateEngine
-from jinja2 import Environment, FileSystemLoader
+from jinja2 import Environment, BaseLoader
+from os import path
+# types
+from typing import Any
 
 
 class TemplateEngineAdapter(TemplateEngine):
@@ -8,8 +10,8 @@ class TemplateEngineAdapter(TemplateEngine):
         self.template = ""
         self.data = {}
 
-    def set_template(self, template_path: str) -> TemplateEngine:
-        self.template = template_path
+    def set_template(self, template: str) -> TemplateEngine:
+        self.template = template
         return self
 
     def set_data(self, data: dict[str, Any]) -> TemplateEngine:
@@ -17,8 +19,6 @@ class TemplateEngineAdapter(TemplateEngine):
         return self
 
     def render(self) -> str:
-        env = Environment(loader=FileSystemLoader('templates'))
-        template = env.get_template(self.template)
-        
-        return template.render(self.data)
+        env = Environment(loader=BaseLoader()).from_string(self.template)
+        return env.render(self.data)
 
