@@ -1,6 +1,6 @@
 # types
 from typing import Any, TypedDict
-from fs.app.interfaces.TemplateEngine import TemplateEngine
+from src.app.interfaces.TemplateEngine import TemplateEngine
 
 class TemplateServiceOptions(TypedDict):
     template_path: str
