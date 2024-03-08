@@ -5,7 +5,7 @@ def main():
     controller = LibController()
     controller.generate({
         'template_path': 'artifacts/template.html',
-        'json_path': 'artifacts/data.json',
+        # 'json_path': 'artifacts/data.json',
         'output_path': 'artifacts/output.pdf'
     })
 

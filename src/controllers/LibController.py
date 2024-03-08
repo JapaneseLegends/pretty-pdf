@@ -2,13 +2,14 @@ from src.adapters.PdfBuilderAdapter import PdfBuilderAdapter
 from src.adapters.TemplateEngineAdapter import TemplateEngineAdapter
 from src.services.PdfService import PdfService
 from src.services.TemplateService import TemplateService
-import json
+from src.utils.data import open_json
 # types
 from typing import Any, TypedDict, Optional
+from typing_extensions import NotRequired
 
 class TemplateOptions(TypedDict):
     template_path: str
-    json_path: str
+    json_path: NotRequired[str]
     output_path: str
 
 
@@ -23,17 +24,17 @@ class LibController():
         with open(path, 'r') as file:
             return file.read()
 
-    def __open_json(self, path: str) -> dict[str, Any] | list[Any]:
-        with open(path, 'r') as file:
-            return json.load(file)
+    def __load_json(self, path: Optional[str]) -> dict[str, Any] | list[Any]:
+        return {} if not path else open_json(path)
 
     def generate(self, options: TemplateOptions) -> None:
         template = self.__open_template(options['template_path'])
-        data = self.__open_json(options['json_path'])
 
+        json_path = options.get("json_path", None)
+        
         html = self.templateService.render({
             'template': template,
-            'data': { "json": data }
+            'data': { "json": self.__load_json(json_path) }
         })
 
         blob = self.pdfService.create(html) 
